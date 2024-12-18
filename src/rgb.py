@@ -100,7 +100,7 @@ def genetic_algorithm(target_image, generations=100, population_size=500, mutati
 
         if generation % 10 == 0:
             best_image = Image.fromarray(best_individual.cpu().numpy())  # Przenieś na CPU przed zapisaniem
-            best_image.save(f"100150best_image_generation_{generation+11000}.png")
+            best_image.save(f"rgb\\best_image_generation_{generation}.png")
 
         crossover_mutate_start = time.time()
         new_population = []  # Zainicjowanie nowej populacji
@@ -148,6 +148,9 @@ def genetic_algorithm(target_image, generations=100, population_size=500, mutati
 
 if __name__ == "__main__":
     target_image_path = "mona_lisa.jpg"  # Ścieżka do obrazu docelowego
+    folder_path = "rgb"
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
     image_size = (100, 150)  # Przykładowy rozmiar docelowy
     target_image = load_target_image(target_image_path, image_size)
     best_image = genetic_algorithm(target_image, resume=True)

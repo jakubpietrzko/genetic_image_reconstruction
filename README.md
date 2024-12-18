@@ -100,4 +100,5 @@ channel = 0 # 0 red, 1 green, 2 blue, nalezy zmienić w miejscu zapisu pliku i w
 join_rgb.py - łączy trzy obrazy które mają tylko jeden kanał barw w jeden obraz posiadający 3 kanały
 alg_join.py - łączy małe fragmenty w jeden duży obraz, należy odpowiednio dobrac rozmiar pojedynczego zdjęcia zdjecia i liczbe grid_size 
 make_animation3.py - tworzy film z zdjęć, należy umeiscić skrypt w folderze z zdjęciami
+plot.py - rysuje krzywą uczenia dla po generacji skryptem black_and_white.py
 

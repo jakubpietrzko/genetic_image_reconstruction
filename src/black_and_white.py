@@ -72,7 +72,7 @@ def fitness_v0(population, target_image):
     fitness_scores = torch.sum(torch.abs(population_tensor - target_image), dim=(1, 2))
     return fitness_scores 
 
-def genetic_algorithm(target_image, generations=100, population_size=1000, mutation_rate=0.01, resume=False):
+def genetic_algorithm(target_image, generations=10, population_size=100, mutation_rate=0.01, resume=False):
     image_size = target_image.shape[:2]
     population_file = "population2.npy"
 
@@ -111,7 +111,7 @@ def genetic_algorithm(target_image, generations=100, population_size=1000, mutat
 
         if generation % 10 == 0:
             best_image = Image.fromarray(best_individual.cpu().numpy(), mode='L')  # Przenieś na CPU przed zapisaniem
-            best_image.save(f"b_w_lena/best_image_generation_{generation}.png")
+            best_image.save(f"b_w/best_image_generation_{generation}.png")
 
         crossover_mutate_start = time.time()
         new_population = []  # Zainicjowanie nowej populacji
@@ -161,8 +161,11 @@ def genetic_algorithm(target_image, generations=100, population_size=1000, mutat
     return Image.fromarray(best_individual.cpu().numpy(), mode='L')  # Przenieś na CPU przed zwróceniem
 
 if __name__ == "__main__":
-    target_image_path = "mona_lisa.png"  # Ścieżka do obrazu docelowego
-    image_size = (300, 450)  # Przykładowy rozmiar docelowy
+    target_image_path = "mona_lisa.jpg"  # Ścieżka do obrazu docelowego
+    folder_path = "b_w"
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+    image_size = (20, 30)  # Przykładowy rozmiar docelowy
     target_image = load_target_image(target_image_path, image_size)
     best_image = genetic_algorithm(target_image, resume=False)
     # Rejestracja przeglądarki Edge
