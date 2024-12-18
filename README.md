@@ -1,4 +1,3 @@
-# genetic_image_reconstruction
 # Dokumentacja projektu: Rekonstrukcja obrazów za pomocą programowania genetycznego
 
 ## Opis projektu
