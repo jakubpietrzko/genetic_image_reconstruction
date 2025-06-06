@@ -1,4 +1,4 @@
-# Dokumentacja projektu: Rekonstrukcja obrazów za pomocą programowania genetycznego
+# Dokumentacja projektu: Rekonstrukcja obrazów za pomocą algorytmów genetycznych
 
 ## Opis projektu
 
